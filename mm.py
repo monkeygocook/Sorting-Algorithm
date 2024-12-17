@@ -1,28 +1,30 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Dec 17 21:09:15 2024
+
+@author: PREDATOR
+"""
+
 import re
 
-# อ่านไฟล์ .sql
-input_file = 'mm.sql'  # เปลี่ยนเป็นชื่อไฟล์จริง
-output_file = 'outputM.txt'
-
-# สร้าง regex pattern เพื่อค้นหาข้อมูล
-pattern = re.compile(
-    r"INSERT INTO `mm`\(`mcode`, `mname`, .+?\) VALUES \('(?P<mcode>\d+)', '(?P<mname>[^']+)',",
-    re.DOTALL
-)
-
-# เก็บผลลัพธ์
-results = []
-
-with open(input_file, 'r', encoding='utf-8') as f:
-    for line in f:
-        match = pattern.search(line)
-        if match:
-            mcode = match.group('mcode')
-            mname = match.group('mname')
-            results.append(f"{mcode} {mname}")
-
-# บันทึกผลลัพธ์ลงไฟล์
-with open(output_file, 'w', encoding='utf-8') as f:
-    f.write('\n'.join(results))
-
-print("ข้อมูลถูกบันทึกแล้ว")
+if __name__ == "__main__":
+    
+    with open('mm.sql', 'r', encoding='utf-8') as file:
+        data = file.readlines()
+    
+    mMem = []
+    for line in data:
+        if "VALUES" in line:
+            start = line.index(' (')
+            end = line.index(');')
+            values = line[start:end].split(', ')
+    
+            mcode = values[0].strip(" ('")
+            mname = values[1].strip("'")
+            mCN = f'{mcode} {mname}'
+                
+            mMem.append(mCN)
+                
+    with open('outputM.txt', 'w', encoding='utf-8') as output_file:
+        for i in mMem:
+            output_file.write(f"{i}\n")
