@@ -9,9 +9,8 @@ import main_def as md
 import sys
 sys.setrecursionlimit(10**6)
 
-
 # อ่านข้อมูลจากไฟล์
-with open('outputT.txt', 'r') as fin:
+with open('outputT.txt', 'r', encoding ='utf-8') as fin:
     all_records = []
 
     for record in fin:
@@ -32,7 +31,7 @@ with open('outputT.txt', 'r') as fin:
         all_records.append(new_record)
         
 if __name__ == '__main__':
-    bu = list(all_records) 
+    bu = list(all_records)
     In = list(all_records)
     se = list(all_records)
     me = list(all_records)
@@ -82,27 +81,23 @@ if __name__ == '__main__':
 
     md.bubblesortLOW(total_time)
     
-    print(total_time[0])
-    a = input("กรุณาใส่ชื่ออัลกอลึมทึม เช็คได้จากข้างบน ใส่,ก่อนใส่ชื่อด้วย = ")
-    total_time[0] = f"{total_time[0]}{a}"
-    print(total_time[1])
-    b = input("กรุณาใส่ชื่ออัลกอลึมทึม เช็คได้จากข้างบน ใส่,ก่อนใส่ชื่อด้วย = ")
-    total_time[1] = f"{total_time[1]}{b}"
-    print(total_time[2])
-    c = input("กรุณาใส่ชื่ออัลกอลึมทึม เช็คได้จากข้างบน ใส่,ก่อนใส่ชื่อด้วย = ")
-    total_time[2] = f"{total_time[2]}{c}"
-    print(total_time[3])
-    d = input("กรุณาใส่ชื่ออัลกอลึมทึม เช็คได้จากข้างบน ใส่,ก่อนใส่ชื่อด้วย = ")
-    total_time[3] = f"{total_time[3]}{d}"
-    print(total_time[4])
-    e = input("กรุณาใส่ชื่ออัลกอลึมทึม เช็คได้จากข้างบน ใส่,ก่อนใส่ชื่อด้วย = ")
-    total_time[4] = f"{total_time[4]}{e}"
-    
-    print("เรียงเวลาที่ Algorithm ใช้เวลาในการทำจาก น้อยไปมาก ", total_time)
+    print("เรียงเวลาที่ Algorithm ใช้เวลาในการทำจาก น้อยไปมาก ")
+    print('=========================================')
+    for time_soft in total_time:
+        if time_soft == b:
+            print(f'bubblesort: {b} มิลลิวินาที')
+        if time_soft == i:
+            print(f'InsertionSort: {i} มิลลิวินาที')
+        if time_soft == s:
+            print(f'SelectionSort: {s} มิลลิวินาที')
+        if time_soft == m:
+            print(f'MergeSort: {m} มิลลิวินาที')
+        if time_soft == q:
+            print(f'QuickSort: {q} มิลลิวินาที')
+    print('=========================================')
+    print("ใช้เวลามากที่สุด", total_time[-1] ,"มิลลิวินาที")
     print()
-    print("ใช้เวลามากที่สุด", total_time[-1])
+    print("ใช้เวลาน้อยที่สุด", total_time[0] ,"มิลลิวินาที")
     print()
-    print("ใช้เวลาน้อยที่สุด", total_time[0])
-    print()
-    print("ใช้เวลากลาง ๆ ", total_time[2])
+    print("ใช้เวลากลาง ๆ ", total_time[2] ,"มิลลิวินาที")
     

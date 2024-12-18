@@ -78,24 +78,26 @@ if __name__ == '__main__':
     time_qu = q
     print()
     
-    tMem = []
-    total_time = [f'bubblesort    : ,'+str(time_bu), 'insertionSort : ,'+str(time_in), 'SelectionSort : ,'+str(time_se), 'MergeSort     : ,'+str(time_me), 'QuickSort     : ,'+str(time_qu)]
+    total_time = [time_bu, time_in, time_se, time_me, time_qu]
+
+    md.bubblesortLOW(total_time)
     
-    for i in total_time:
-        values = i.split(',')
-        
-        tMem.append(md.T(values[0],values[1]))
-        
-    md.bubblesortLOW(tMem)
-    
-    print("เรียงเวลาที่ Algorithm ใช้เวลาในการทำจาก น้อย ไปหา มาก ")
-    for timee in tMem:
-        print(timee)
-    
+    print("เรียงเวลาที่ Algorithm ใช้เวลาในการทำจาก น้อยไปมาก ")
+    print('=========================================')
+    for time_soft in total_time:
+        if time_soft == b:
+            print(f'bubblesort   : {b:.20f} มิลลิวินาที')
+        if time_soft == i:
+            print(f'InsertionSort: {i:.20f} มิลลิวินาที')
+        if time_soft == s:
+            print(f'SelectionSort: {s:.20f} มิลลิวินาที')
+        if time_soft == m:
+            print(f'MergeSort    : {m:.20f} มิลลิวินาที')
+        if time_soft == q:
+            print(f'QuickSort    : {q:.20f} มิลลิวินาที')
+    print('=========================================')
+    print("ใช้เวลามากที่สุด", total_time[-1] ,"มิลลิวินาที")
     print()
-    print("ใช้เวลามากที่สุด", tMem[-1])
+    print("ใช้เวลาน้อยที่สุด", total_time[0] ,"มิลลิวินาที")
     print()
-    print("ใช้เวลาน้อยที่สุด", tMem[0])
-    print()
-    print("ใช้เวลากลาง ๆ", tMem[2])
-    
+    print("ใช้เวลากลาง ๆ ", total_time[2] ,"มิลลิวินาที")
