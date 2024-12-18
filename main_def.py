@@ -7,12 +7,12 @@ Created on Fri Dec 13 22:53:29 2024
 
 class T:
     
-    def __init__(self,Name="",Time=""):
+    def __init__(self,Name,Time):
         self.Name  = Name
-        self.Time  = Time
+        self.Time  = float(Time)
 
     def __str__(self):
-        return f'{self.Name:3}{self.Time:20}'
+        return f'{self.Name:3}{self.Time:.20f}'
 
     def showAllStationData(self):
         return f'{self.Name}, {self.Time}'
