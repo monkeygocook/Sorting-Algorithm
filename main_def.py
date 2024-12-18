@@ -5,19 +5,6 @@ Created on Fri Dec 13 22:53:29 2024
 @author: monkeygorun
 """
 
-class T:
-    
-    def __init__(self,Name,Time):
-        self.Name  = Name
-        self.Time  = float(Time)
-
-    def __str__(self):
-        return f'{self.Name:3}{self.Time:.20f}'
-
-    def showAllStationData(self):
-        return f'{self.Name}, {self.Time}'
-
-
 def bubblesort(a_list):
      n = len(a_list)
      for k in range(1, n):
@@ -36,7 +23,7 @@ def bubblesortLOW(a_list):
      n = len(a_list)
      for k in range(1, n):
          for i in range(0, n - k):
-             if a_list[i].Time > a_list[i+1].Time:
+             if a_list[i] > a_list[i+1]:
                  tmp = a_list[i]
                  a_list[i] = a_list[i+1]
                  a_list[i+1] = tmp
